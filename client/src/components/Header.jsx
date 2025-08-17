@@ -1,4 +1,4 @@
-import { Button, Navbar, TextInput } from "flowbite-react";
+import { Button, Navbar,NavbarCollapse,NavbarLink,NavbarToggle, TextInput } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { HiSearch } from "react-icons/hi";
 import { FaMoon } from "react-icons/fa";
@@ -17,21 +17,13 @@ function Header() {
 
       {/*Search bar*/}
       <div className="flex justify-center">
-      <form className="hidden lg:block">
-        <TextInput type="text" placeholder="Serach..." icon={HiSearch} />
-      </form>
-      <Button className="w-15 h-8 lg:hidden" color="gray" pill>
-        <HiSearch />
-      </Button>
+        <form className="hidden lg:block">
+          <TextInput type="text" placeholder="Serach..." icon={HiSearch} />
+        </form>
+        <Button className="w-15 h-8 lg:hidden" color="gray" pill>
+          <HiSearch />
+        </Button>
       </div>
-
-      {/*Navigations*/}
-      <div>
-        <Link to="/Projects"
-        className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white">Projects
-        </Link>
-      </div>
-
       <div className="flex items-center gap-3">
         {/* Moon Icon Button */}
         <Button color="gray" pill>
@@ -45,6 +37,19 @@ function Header() {
           </Button>
         </Link>
       </div>
+
+      <NavbarToggle />
+      <NavbarCollapse>
+        <NavbarLink href="#" active>
+          Home
+        </NavbarLink>
+        <NavbarLink as={Link} href="#">
+          About
+        </NavbarLink>
+        <NavbarLink href="#">Services</NavbarLink>
+        <NavbarLink href="#">Pricing</NavbarLink>
+        <NavbarLink href="#">Contact</NavbarLink>
+      </NavbarCollapse>
     </Navbar>
   );
 }
