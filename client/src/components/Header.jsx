@@ -1,8 +1,17 @@
-import { Button, Navbar,NavbarCollapse,NavbarLink,NavbarToggle, TextInput } from "flowbite-react";
-import { Link } from "react-router-dom";
+import {
+  Button,
+  Navbar,
+  NavbarCollapse,
+  NavbarLink,
+  NavbarToggle,
+  TextInput,
+} from "flowbite-react";
+import { Link,useLocation} from "react-router-dom";
 import { HiSearch } from "react-icons/hi";
 import { FaMoon } from "react-icons/fa";
+
 function Header() {
+  const path=useLocation().pathname;
   return (
     <Navbar className="border-b-2 border-gray-200 bg-white dark:bg-gray-900 px-4">
       <Link
@@ -24,6 +33,19 @@ function Header() {
           <HiSearch />
         </Button>
       </div>
+
+              <NavbarToggle />
+      <NavbarCollapse>
+        <NavbarLink href="/" active={path==="/"} className="text-gray-700 dark:text-gray-300 hover:text-indigo-600">
+          Home
+        </NavbarLink>
+        <NavbarLink href="/about" active={path==="/about"} className="text-gray-700 dark:text-gray-300 hover:text-indigo-600">About</NavbarLink>
+        <NavbarLink href="/projects" active={path==="/projects"} className="text-gray-700 dark:text-gray-300 hover:text-indigo-600">Projects</NavbarLink>
+        <NavbarLink href="/dashboard" active={path==="/dashboard"} className="text-gray-700 dark:text-gray-300 hover:text-indigo-600">Dashboard</NavbarLink>
+      </NavbarCollapse>
+      
+    
+
       <div className="flex items-center gap-3">
         {/* Moon Icon Button */}
         <Button color="gray" pill>
@@ -37,19 +59,6 @@ function Header() {
           </Button>
         </Link>
       </div>
-
-      <NavbarToggle />
-      <NavbarCollapse>
-        <NavbarLink href="#" active>
-          Home
-        </NavbarLink>
-        <NavbarLink as={Link} href="#">
-          About
-        </NavbarLink>
-        <NavbarLink href="#">Services</NavbarLink>
-        <NavbarLink href="#">Pricing</NavbarLink>
-        <NavbarLink href="#">Contact</NavbarLink>
-      </NavbarCollapse>
     </Navbar>
   );
 }
