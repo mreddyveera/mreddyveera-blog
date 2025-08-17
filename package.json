@@ -1,0 +1,25 @@
+{
+  "name": "mern-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev":"nodemon api/index.js",
+    "start":"node api/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mreddyveera/mreddyveera-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mreddyveera/mreddyveera-blog/issues"
+  },
+  "homepage": "https://github.com/mreddyveera/mreddyveera-blog#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
