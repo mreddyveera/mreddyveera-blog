@@ -16,3 +16,12 @@ app.use('/api/auth',authRoute);
 app.listen(4567,()=>{
     console.log(`Server started on server 4567vghgvghv`);
 });
+//Handling all type of errors
+app.use((err,req,res,next)=>{
+    const statusCode=err.statusCode || 580;
+    const errMessage=err.message||'Internal Server Error';
+    res.status(statusCode).json({success:false,
+        statusCode,
+        errMessage
+    });
+});
