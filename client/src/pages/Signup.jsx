@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";   // ✅ named import
 
-export default function Signup() {
+function Signup() {
   return (
-    <div>
-      
-    </div>
-  )
+<div>Signup page</div>
+  );
 }
+
+export default Signup;

@@ -53,7 +53,7 @@ function Header() {
         </Button>
 
         {/* Sign In Button */}
-        <Link to="/sign-in">
+        <Link to="/signin">
           <Button className="bg-gradient-to-br from-purple-600 to-blue-500 text-white hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800">
             Sign In
           </Button>
