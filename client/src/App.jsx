@@ -6,6 +6,7 @@ import Signup from "./pages/Signup.jsx";
 import Projects from "./pages/Projects.jsx";
 import About from "./pages/About.jsx";
 import Header from './components/Header.jsx';
+import Signup1 from "./pages/Signup1.jsx";
 function App() {
   
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/projects" element={<Projects />}/>
         <Route path="/signin" element={<Signin/>}/>
         <Route path="/signup" element={<Signup/>}/>
+        <Route path="/signup1" element={<Signup1/>}/>
       </Routes>
       </BrowserRouter>
     </>
