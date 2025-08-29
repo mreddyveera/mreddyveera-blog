@@ -1,6 +1,7 @@
 const userModel=require('../models/usermodel.js');
-const bcrypt=require('bcryptjs');
+const bcryptjs=require('bcryptjs');
 const errorHandler = require('../utils/error.js');
+const jwt=require("jsonwebtoken");
 const signup=async(req,res,next)=>{
     //Accessing the body of a post request
 
@@ -31,4 +32,37 @@ catch(e){
 }
 
 }
-module.exports={signup};
+
+const signin=async(req,res,next)=>{
+    const {email,password}=req.body;
+    
+// username is null, undefined, false, 0, NaN, or "" (empty string).
+    if(!email || !password){
+        next(errorHandler(400,'All fields are required'));
+    }
+    try{
+        const validUser=await userModel.findOne({email});
+        if(!validUser){
+            return next(errorHandler(400,"Email not found"));
+        }
+        const validPassword=bcryptjs.compareSync(password,validUser.password);
+        if(!validPassword){
+            return next(errorHandler(400,"Invalid Password"));
+        }
+
+        //npm i jsonwebtoken
+        const token=jwt.sign({id:validUser._id},process.env.JWT_SECRET);
+        //we dont want to expose the password to cookie whether it is hashed or not
+        const {password:pass,...rest}=validUser;
+        res.status(200).cookie('access_token',token,{httpOnly:true}).json(rest);
+
+
+
+
+    }
+    catch(error){
+        next(error);
+    }
+
+}
+module.exports={signup,signin};
