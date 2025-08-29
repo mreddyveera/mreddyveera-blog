@@ -68,7 +68,7 @@ function Signup() {
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="flex items-center justify-center w-full">
       {/* Main container with left + right */}
       <div className="flex p-6 max-w-4xl w-full flex-col md:flex-row gap-8">
         {/* Left */}
