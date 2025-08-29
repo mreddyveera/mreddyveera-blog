@@ -6,24 +6,28 @@ import Signup from "./pages/Signup.jsx";
 import Projects from "./pages/Projects.jsx";
 import About from "./pages/About.jsx";
 import Header from './components/Header.jsx';
-import Signup1 from "./pages/Signup1.jsx";
+import Footer from "./components/FooterComp.jsx";
+
 function App() {
-  
   return (
-    <>
-      <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/about" element={<About />}/>
-        <Route path="/dashboard" element={<Dashboard />}/>
-        <Route path="/projects" element={<Projects />}/>
-        <Route path="/signin" element={<Signin/>}/>
-        <Route path="/signup" element={<Signup/>}/>
-        <Route path="/signup1" element={<Signup1/>}/>
-      </Routes>
-      </BrowserRouter>
-    </>
+    <div>
+    <BrowserRouter>
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />}/>
+            <Route path="/about" element={<About />}/>
+            <Route path="/dashboard" element={<Dashboard />}/>
+            <Route path="/projects" element={<Projects />}/>
+            <Route path="/signin" element={<Signin/>}/>
+            <Route path="/signup" element={<Signup/>}/>
+          </Routes>
+        </main>
+        <Footer/>
+      </div>
+    </BrowserRouter>
+    </div>
   )
 }
 
