@@ -50,18 +50,13 @@ export const Login = async (req, res, next) => {
       },
       process.env.JWT_SECRET
     );
-    // res.cookie("access_token", token, {
-    //   httpOnly: true,
-    //   secure: process.env.NODE_ENV === "production",
-    //   sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
-    //   path: "/" ,
-    // });
     res.cookie("access_token", token, {
       httpOnly: true,
-      secure: false, // localhost ≠ https
-      sameSite: "lax", // NOT strict
-      path: "/",
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      path: "/" ,
     });
+   
 
     const newuser = user.toObject({ getters: true });
     delete newuser.password;
