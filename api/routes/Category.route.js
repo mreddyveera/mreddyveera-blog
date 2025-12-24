@@ -3,9 +3,9 @@ import { addCategory, deleteCategory, getAllCategory, showCategory, updateCatego
 import { onlyAdmin } from "../middleware/onlyAdmin.js";
 
 const CategoryRoute=express.Router();
-CategoryRoute.post("/add",onlyAdmin,addCategory);
-CategoryRoute.put("/update/:categoryid",onlyAdmin, updateCategory);
-CategoryRoute.get("/show/:categoryid",onlyAdmin,showCategory);
-CategoryRoute.delete("/delete/:categoryid",onlyAdmin,deleteCategory);
-CategoryRoute.get("/all-categorys",onlyAdmin,getAllCategory);
+CategoryRoute.post("/add",addCategory);
+CategoryRoute.put("/update/:categoryid", updateCategory);
+CategoryRoute.get("/show/:categoryid",showCategory);
+CategoryRoute.delete("/delete/:categoryid",deleteCategory);
+CategoryRoute.get("/all-categorys",getAllCategory);
 export default CategoryRoute;
