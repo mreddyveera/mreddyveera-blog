@@ -26,7 +26,7 @@ import { getEnv } from "@/helpers/getEnv";
 export function AppSidebar() {
    
   const user=useSelector((state)=>state.user);
-  console.log(user);
+ 
   
   const {data:categoryData}=useFetch(`${getEnv('VITE_API_BASE_URL')}/category/all-categorys`,{
       method:"get",
@@ -48,13 +48,13 @@ export function AppSidebar() {
                     </SidebarMenuButton>
                 </SidebarMenuItem>
 
-                
+                {user?.isLoggedIn && user?.user?.role==="admin" &&
                   <SidebarMenuItem>
                     <SidebarMenuButton>
                       <BiSolidCategoryAlt/>
                         <Link to={RouteCategoryDetails}>Categories</Link>
                     </SidebarMenuButton>
-                  </SidebarMenuItem>
+                  </SidebarMenuItem>}
               
                 {user?.isLoggedIn &&
                 <SidebarMenuItem>
@@ -63,15 +63,15 @@ export function AppSidebar() {
                         <Link to={RouteBlog}>Blogs</Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>}
-                 {user?.user?.role==="admin" && (
+                 {user?.isLoggedIn && user?.user?.role==="admin" &&
                 <SidebarMenuItem>
                     <SidebarMenuButton>
                       <FaComments/>
                         <Link to={RouteComments}>Comments</Link>
                     </SidebarMenuButton>
-                </SidebarMenuItem>)}
+                </SidebarMenuItem>}
 
-                {user?.user?.role==="admin" &&<SidebarMenuItem>
+                {user?.isLoggedIn && user?.user?.role==="admin" &&<SidebarMenuItem>
                     <SidebarMenuButton>
                       <HiUsers/>
                         <Link to={RouteUser}>Users</Link>

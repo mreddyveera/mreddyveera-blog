@@ -60,7 +60,7 @@ function App() {
               
             </Route>
 
-            <Route element={<OnlyAdminAllowed />}>
+            
             {/*comments*/}
               <Route path={RouteComments} element={<Comments />} />
 
@@ -71,7 +71,7 @@ function App() {
             <Route path={RouteCategoryDetails} element={<CategoryDetails />} />
             <Route path={RouteEditCategory} element={<EditCategory />} />
               
-            </Route>
+            
           </Route>
           <Route path={RouteSignIn} element={<SignIn />} />
           <Route path={RouteSignUp} element={<SignUp />} />

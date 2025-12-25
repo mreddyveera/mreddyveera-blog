@@ -88,7 +88,9 @@ const AddBlog = () => {
           body: formData,
         }
       );
+      console.log(formData);
       const data = await response.json();
+      console.log(data);
       
       if (!response.ok) {
         return showToast("error", data.message || "Registration failed");

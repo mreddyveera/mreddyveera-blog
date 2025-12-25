@@ -11,7 +11,7 @@ import SingleBlogDetails from "@/pages/Blog/SingleBlogDetails.jsx";
 const BlogCard = ({ props }) => {
   const user = useSelector((state) => state.user);
   const avatarUrl = "avatarUrl";
-  console.log(props.category.name);
+  console.log("props",props);
   
   
   return (
@@ -24,8 +24,7 @@ const BlogCard = ({ props }) => {
                 <Avatar className="w-12 h-12 rounded-full border overflow-hidden">
                   <AvatarImage
                     src={
-                      props.avatar ||
-                      user?.user?.avatar ||
+                      props?.featuredImage ||
                       "http://github.com/shadcn.png"
                     }
                     className="object-cover"
