@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 //BlogRoute.get("/get-blog-by-category/:category",getBlogByCategory);
 
 const BlogByCategory = () => {
-    //console.log(`${getEnv("VITE_API_BASE_URL")}/blog/get-blog-by-category/${category}`);
+    
   const { category } = useParams();
   const {
     data: blogData,
@@ -22,7 +22,7 @@ const BlogByCategory = () => {
     },
     [category]
   );
-console.log(blogData);
+
 
   
   if(loading) return <div><Loading/></div>

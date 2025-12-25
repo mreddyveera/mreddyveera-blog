@@ -14,7 +14,7 @@ const RelatedBlog = ({props}) => {
           credentials: "include",
         }
       );
-      console.log(data);
+  
       if(loading) return <div>Loading...</div>
   return (
    <>

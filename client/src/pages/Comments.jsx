@@ -50,7 +50,7 @@ const Comments = () => {
       showToast("error", "Data not deleted.");
     }
   };
-  console.log(comments);
+ 
   if (loading) return <Loading />;
   return (
     <>

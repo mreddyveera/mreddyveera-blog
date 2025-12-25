@@ -186,7 +186,7 @@ export const search = async (req, res, next) => {
       .populate("author", "name avatar role").populate('category','name slug') // 🔥 THIS IS THE KEY LINE
       .lean()
       .exec();
-      console.log(blogs);
+     
 
     res.status(200).json({
       blog: blogs,
