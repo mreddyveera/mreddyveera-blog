@@ -164,8 +164,10 @@ export const getBlogByCategory = async (req, res, next) => {
 
     const blogs = await Blog.find({ category: categoryData._id })
       .populate("category", "name") // 🔥 THIS IS THE KEY LINE
+      .populate("author", "name role slug")
       .lean()
       .exec();
+      
 
     res.status(200).json({
       blog: blogs,
